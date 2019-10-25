@@ -1,32 +1,33 @@
-import {FETCH_SONICS, FETCH_SONICS_SUCCESS, FETCH_SONICS_ERROR} from "../actions/roster"
+import { FETCH_SONICS, FETCH_SONICS_SUCCESS, FETCH_SONICS_ERROR } from "../actions/roster"
 
 const initialState = {
-  players:[],
-  isLoading: false,
-  error: ''
+    players: [],
+    isLoading: false,
+    error: ''
 };
 
-export function reducer (state = initialState, action) {
-  console.log(state);
-  switch(action.type) {
-    case FETCH_SONICS:
-      return{
-        ...state,
-        isLoading:true
-      }
-      case FETCH_SONICS_SUCCESS:
-        return{
-          ...state,
-          players: action.payload.data,
-          isLoading: false
-        }
+export function reducer(state = initialState, action) {
+    console.log(state);
+    switch (action.type) {
+        case FETCH_SONICS:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case FETCH_SONICS_SUCCESS:
+            console.log("fetch success");
+            return {
+                ...state,
+                players: action.payload,
+                isLoading: false
+            }
         case FETCH_SONICS_ERROR:
-          return{
-            ...state,
-            error: action.payload,
-            isLoading: false
-          }
-    default:
-      return state;
-  }
+            return {
+                ...state,
+                error: action.payload,
+                isLoading: false
+            }
+        default:
+            return state;
+    }
 }

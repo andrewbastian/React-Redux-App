@@ -1,29 +1,30 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PlayerCard from './PlayerCard';
 import { fetchRoster } from '../actions/roster';
 import { connect } from "react-redux";
 
 function Roster(props) {
-  useEffect(()=>{
-    props.fetchRoster()
-  },[])
+    useEffect(() => {
+        props.fetchRoster()
+    }, [])
 
-  return (
-    <div>
-{props.players.map(player => {
-  return <PlayerCard player={player}/>
-})}
-    </div>
-  );
+    return (
+        <div>
+            {props.players.map(player => {
+                return <PlayerCard player={player} />
+            })}
+        </div>
+    );
 }
 
 function mapStateToProps(state) {
-  return {
-
-  };
+    console.log("appState", state)
+    return {
+        players: state.CommonTeamRosterReducer.players
+    };
 }
 const mapDispatchToProps = {
-  fetchRoster
+    fetchRoster
 }
 // notice how "mapDispatchToProps" is optional.
 // since we're not calling action creators here, we don't need it.
