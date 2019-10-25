@@ -28,14 +28,14 @@ const useStyles = makeStyles(theme => ({
 export default function PlayerCard(props){
   const classes = useStyles();
 
-    console.log(props);
+    console.log('playercard props',props);
     return(
     <Card>
       <CardContent>
-        <ListItemText>Name:{props.player}</ListItemText>
-        <ListItemText>Age:{props.Age}</ListItemText>
-        <ListItemText>Height:{props.height}</ListItemText>
-        <ListItemText>Position:{props.position}</ListItemText>
+        <ListItemText>Name:{props.PLAYER}</ListItemText>
+        <ListItemText>Age:{props.AGE}</ListItemText>
+        <ListItemText>Height:{props.HEIGHT}</ListItemText>
+        <ListItemText>Position:{props.POSITION}</ListItemText>
       </CardContent>
     </Card>
 

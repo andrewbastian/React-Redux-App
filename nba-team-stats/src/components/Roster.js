@@ -3,23 +3,25 @@ import PlayerCard from './PlayerCard';
 import { fetchRoster } from '../actions/roster';
 import { connect } from "react-redux";
 
-function Roster(props) {
+function Roster (props) {
   useEffect(()=>{
     props.fetchRoster()
   },[])
-
+console.log('rosterProps',props.CommonTeamRoster);
   return (
     <div>
-{props.players.map(player => {
-  return <PlayerCard player={player}/>
-})}
+{Object.entries(props.CommonTeamRoster).map(PLAYER=>(
+  <PlayerCard PLAYER={PLAYER}
+    />
+))}
+
     </div>
   );
 }
 
 function mapStateToProps(state) {
   return {
-
+    CommonTeamRoster: state.CommonTeamRoster
   };
 }
 const mapDispatchToProps = {

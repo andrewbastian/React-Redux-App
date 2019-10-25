@@ -1,4 +1,3 @@
-import axios from "axios";
 import {teamRoster} from 'nba-api-client';
 export const FETCH_SONICS = "FETCH_SONICS"
 export const FETCH_SONICS_SUCCESS = "FETCH_SONICS_SUCCESS"

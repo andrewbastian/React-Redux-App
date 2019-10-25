@@ -1,7 +1,7 @@
 import {FETCH_SONICS, FETCH_SONICS_SUCCESS, FETCH_SONICS_ERROR} from "../actions/roster"
 
 const initialState = {
-  players:[],
+  CommonTeamRoster:[''],
   isLoading: false,
   error: ''
 };
@@ -17,7 +17,7 @@ export function reducer (state = initialState, action) {
       case FETCH_SONICS_SUCCESS:
         return{
           ...state,
-          players: action.payload.data,
+          CommonTeamRoster: action.payload,
           isLoading: false
         }
         case FETCH_SONICS_ERROR:
