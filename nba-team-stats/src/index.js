@@ -4,14 +4,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk"
 import logger from "redux-logger";
-import {reducer as rosterReducer} from "./reducers/roster"
+import {reducer as CommonTeamRosterReducer} from "./reducers/roster"
 
 import App from "./App";
 
 // this combines everything into one giant main reducer,
 // so our action types still need to be unique
 const rootReducer = combineReducers({
-  roster: rosterReducer
+  CommonTeamRoster: CommonTeamRosterReducer
 });
 
 // create our store or "global state object"

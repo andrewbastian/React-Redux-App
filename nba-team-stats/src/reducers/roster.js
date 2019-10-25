@@ -1,24 +1,13 @@
 import {FETCH_SONICS, FETCH_SONICS_SUCCESS, FETCH_SONICS_ERROR} from "../actions/roster"
 
 const initialState = {
-AGE: '33',
-BIRTH_DATE: "JUN 30, 1985",
-EXP: "13",
-HEIGHT: "6-8",
-LeagueID: "00",
-NUM: "1",
-PLAYER: "Trevor Ariza",
-PLAYER_ID: 2772,
-POSITION: "F-G",
-SCHOOL: "UCLA",
-SEASON: "2017",
-TeamID: '1610612745',
-WEIGHT: "215",
-isLoading: false,
-error: null,
+  players:[],
+  isLoading: false,
+  error: ''
 };
 
 export function reducer (state = initialState, action) {
+  console.log(state);
   switch(action.type) {
     case FETCH_SONICS:
       return{
@@ -28,7 +17,7 @@ export function reducer (state = initialState, action) {
       case FETCH_SONICS_SUCCESS:
         return{
           ...state,
-          PLAYER: action.payload,
+          players: action.payload.data,
           isLoading: false
         }
         case FETCH_SONICS_ERROR:
